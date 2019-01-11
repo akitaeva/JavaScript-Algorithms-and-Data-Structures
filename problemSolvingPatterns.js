@@ -1,4 +1,4 @@
-//Frequency Counter
+//FREQUENCY COUNTER
 //Given 2 strings determine if one is the anagram of the other 
 //It is assumed the strings contain only lowercase alphabets
 
@@ -61,3 +61,23 @@ const validAnagram = (str1, str2) => {
   
 //   validAnagram("istruethat", "thattrueis");
 //   validAnagram("mesayswho", "homesayswe");
+
+
+//==============================================================\
+// 
+//  MULTIPLE POINTERS
+
+const countUniqueValues = (arr) => {
+  let newArr = []
+
+  for (let i = 0; i<arr.length-1; i++) {
+    console.log(arr[i], arr[i+1])
+    if (arr[i] === arr[i+1]) {
+      newArr = arr.splice(arr[i], 1)
+      console.log(newArr, "\n", arr)
+    } 
+  }   
+   return arr.length
+}
+
+countUniqueValues([1,1,3,4,5,6,6,7,8,9,9])
