@@ -68,16 +68,22 @@ const validAnagram = (str1, str2) => {
 //  MULTIPLE POINTERS
 
 const countUniqueValues = (arr) => {
-  let newArr = []
-
-  for (let i = 0; i<arr.length-1; i++) {
-    console.log(arr[i], arr[i+1])
-    if (arr[i] === arr[i+1]) {
-      newArr = arr.splice(arr[i], 1)
-      console.log(newArr, "\n", arr)
-    } 
-  }   
-   return arr.length
-}
+  let index = 0;     //tracking the current index position
+  let pointer = 1;   //tracking the last unique element in the array
+  while (pointer < arr.length) {
+    if (arr[index] == arr[pointer]) {
+       pointer +=1;
+       console.log("pointer", pointer)
+    } else {
+       let mover = Number(arr.splice(pointer, 1).join(""));
+       console.log("mover", mover);
+       arr.splice((index+1), 0, mover);
+       index++;
+       console.log("index, arr", index, arr);
+    }
+  }
+   return index;
+  }
+  
 
 countUniqueValues([1,1,3,4,5,6,6,7,8,9,9])
