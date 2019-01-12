@@ -83,6 +83,21 @@ const countUniqueValues = (arr) => {
   }
    return index+1;
   }
-  
+
+ 
+//The refactored solution
+
+const countUniqueValues = (arr) => {
+  if (arr.length===0) { return 0}    
+  let index = 0;     //tracking the current index position
+for (let i=1; i<arr.length; i++) {
+  if (arr[index] !== arr[i]) {
+    index++;
+    arr[index] = arr[i]
+  }
+}
+
+  return index+1;
+}
 
 //countUniqueValues([1,1,3,4,5,6,6,7,8,9,9])
