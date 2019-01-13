@@ -48,7 +48,7 @@ const validAnagram = (str1, str2) => {
   }
   for (let i = 0; i < str2.length; i++) {
     let char = str2[i]
-    //cannot find the letter or its value count is zero then it;s not an anagram
+    //cannot find the letter or its value count is zero then it's not an anagram
     if (!charCounter[char]) {
       return false;
     } else {
@@ -62,8 +62,41 @@ const validAnagram = (str1, str2) => {
 //   validAnagram("istruethat", "thattrueis");
 //   validAnagram("mesayswho", "homesayswe");
 
+//==============================================================
+//Given 2 positive integers, find out if the two numbers have the same frequency of digits
+//with the complexity Time: O(N)
 
-//==============================================================\
+function sameFrequency(num1, num2){
+  //turn numbers into arrays of digits
+  const digArr1 = num1.toString().split("").map(Number);
+  const digArr2 = num2.toString().split("").map(Number);
+  if (digArr1.length !== digArr2.length) {
+      return false;
+    }
+  let digitCounter = {}  
+  for (let i = 0; i < digArr1.length; i++) {
+    let dgt =  digArr1[i];
+     digitCounter[dgt] ? digitCounter[dgt] += 1 : digitCounter[dgt] = 1;
+  }   
+  console.log(digArr1, digArr2, "=====", digitCounter);
+  for (let i = 0; i < digArr2.length; i++) {
+    let dgt =  digArr2[i];
+    if (!digitCounter[dgt]) {
+      return false;
+    } else {
+      digitCounter[dgt] -= 1;
+    }
+
+  }
+  return true;
+}
+
+
+//sameFrequency(3446572, 5325746);
+
+
+
+//==============================================================
 // 
 //  MULTIPLE POINTERS
 
@@ -101,3 +134,5 @@ for (let i=1; i<arr.length; i++) {
 }
 
 //countUniqueValues([1,1,3,4,5,6,6,7,8,9,9])
+
+
