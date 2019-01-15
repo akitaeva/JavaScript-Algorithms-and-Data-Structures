@@ -62,6 +62,25 @@ const validAnagram = (str1, str2) => {
 //   validAnagram("istruethat", "thattrueis");
 //   validAnagram("mesayswho", "homesayswe");
 
+
+// FREQUENCY COUNTER X 2
+
+function areThereDuplicates() {
+  if (arguments.length===0) {return false}    
+let charCounter1 = {}
+for (let char of arguments) {
+charCounter1[char] = (charCounter1[char] || 0) + 1;
+}
+if (charCounter1[key] === 2) {
+  
+  return true
+}
+return false;
+}
+
+
+
+
 //==============================================================
 //Given 2 positive integers, find out if the two numbers have the same frequency of digits
 //with the complexity Time: O(N)
