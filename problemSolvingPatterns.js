@@ -119,10 +119,10 @@ function sameFrequency(num1, num2){
 // 
 //  MULTIPLE POINTERS
 
-const countUniqueValues = (arr) => {
+const countUniqueValues = (arr) => {    // only for sorted arrays
   if (arr.length===0) { return 0}    
-  let index = 0;     //tracking the current index position
-  let pointer = 1;   //tracking the last unique element in the array
+  let index = 0;     // tracking the current index position
+  let pointer = 1;   // tracking the last unique element in the array
   while (pointer < arr.length) {
     if (arr[index] === arr[pointer]) {
        pointer +=1;
